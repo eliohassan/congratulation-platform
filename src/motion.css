@@ -1,0 +1,53 @@
+/* Shared motion language: subtle, purposeful, and safe for touch devices. */
+:root { --ease-out: cubic-bezier(.22, 1, .36, 1); --ease-spring: cubic-bezier(.34, 1.56, .64, 1); }
+
+.source-nav { animation: nav-enter .7s var(--ease-out) both; }
+.home-copy { animation: reveal-up .8s .08s var(--ease-out) both; }
+.home-photo { animation: reveal-photo 1s .14s var(--ease-out) both; }
+.home-followup { animation: reveal-up .75s .24s var(--ease-out) both; }
+.find-page > *, .register-copy, .register-card, .guide-page > *, .wall > *, .admin > * { animation: reveal-up .65s var(--ease-out) both; }
+.find-page > *:nth-child(2), .guide-page > *:nth-child(2), .wall > *:nth-child(2), .admin > *:nth-child(2) { animation-delay: .08s; }
+.find-page > *:nth-child(3), .guide-page > *:nth-child(3), .wall > *:nth-child(3), .admin > *:nth-child(3) { animation-delay: .15s; }
+
+button, a, input, textarea, select { transition: border-color .22s ease, color .22s ease, background-color .22s ease, box-shadow .22s ease, transform .22s var(--ease-out), opacity .22s ease; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 38%, transparent); outline-offset: 3px; }
+
+.gold-button, .search-box button { box-shadow: 0 8px 17px color-mix(in srgb, var(--accent) 25%, transparent); }
+.gold-button:hover, .search-box button:hover { transform: translateY(-2px); box-shadow: 0 13px 24px color-mix(in srgb, var(--accent) 34%, transparent); }
+.gold-button:active, .search-box button:active { transform: translateY(0) scale(.98); }
+.home-secondary:hover, .admin-trigger:hover, .register-link:hover, .country-trigger:hover { transform: translateY(-2px); border-color: var(--accent)!important; box-shadow: 0 8px 18px #0000000b; }
+.home-actions svg, .gold-button svg, .search-box button svg, .media svg, .links svg, .controls svg { transition: transform .25s var(--ease-spring); }
+.home-actions button:hover svg, .gold-button:hover svg, .search-box button:hover svg, .media:hover svg { transform: scale(1.16) rotate(-7deg); }
+
+.feature, .wish, .guide-page-grid article, .find-steps article, .page-preview, .register-card, .form-card, .metrics > div, .moderation > div, .moderation > aside { transition: transform .3s var(--ease-out), box-shadow .3s ease, border-color .3s ease; }
+.wish:hover, .guide-page-grid article:hover, .find-steps article:hover, .page-preview:hover, .register-card:hover, .form-card:hover, .metrics > div:hover, .moderation > div:hover, .moderation > aside:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); box-shadow: 0 20px 38px #0000000d; }
+.wish-media img, .preview-photo img, .style-grid img, .crop-thumbs img, .registry img { transition: transform .45s var(--ease-out), filter .35s ease; }
+.wish-media:hover img, .preview-photo:hover img, .style-grid button:hover img, .crop-thumbs button:hover img { transform: scale(1.06); filter: saturate(1.08); }
+
+.portal-chip, .section-label, .feed-title > div > span, .wall-hero span { animation: soft-pulse 3.5s ease-in-out infinite; }
+.source-logo:hover { transform: translateY(-1px); letter-spacing: .16em; }
+.links button { position: relative; }
+.links button::after { content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 2px; border-radius: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .24s var(--ease-out); }
+.links button:hover::after { transform: scaleX(1); }
+.themes button:hover { transform: translateY(-1px); }
+.style-grid button:hover, .emojis button:hover { transform: translateY(-3px) scale(1.02); }
+.country-list > button:hover { padding-left: 12px; }
+.toast { animation: toast-in .45s var(--ease-spring) both; }
+.overlay { animation: overlay-in .22s ease both; }
+.wish-modal, .crop-editor, .guide { animation: modal-in .38s var(--ease-out) both; }
+
+@keyframes nav-enter { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes reveal-up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes reveal-photo { from { opacity: 0; transform: translateY(25px) scale(.975); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes toast-in { from { opacity: 0; transform: translateY(18px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-in { from { opacity: 0; transform: translateY(18px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes soft-pulse { 0%,100% { opacity: .84; } 50% { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms!important; animation-iteration-count: 1!important; scroll-behavior: auto!important; transition-duration: .01ms!important; }
+}
+
+@media (hover: none) {
+  .gold-button:hover, .search-box button:hover, .home-secondary:hover, .admin-trigger:hover, .register-link:hover, .country-trigger:hover, .wish:hover, .guide-page-grid article:hover, .find-steps article:hover, .page-preview:hover, .register-card:hover, .form-card:hover, .metrics > div:hover, .moderation > div:hover, .moderation > aside:hover { transform: none; box-shadow: none; }
+}

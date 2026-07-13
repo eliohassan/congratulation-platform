@@ -1,0 +1,60 @@
+/* Large, cinematic rings hero with a soft overlay for readable copy. */
+.scroll-platform .home-page {
+  grid-template-columns: minmax(310px, .78fr) minmax(460px, 1.22fr);
+  gap: clamp(42px, 6vw, 100px);
+  padding-top: clamp(72px, 9vw, 140px);
+  padding-bottom: 120px;
+}
+
+.home-photo {
+  height: min(660px, 57vw);
+  min-height: 500px;
+  border-radius: 30px;
+  box-shadow: 0 28px 70px rgba(53, 38, 16, .18);
+  isolation: isolate;
+}
+
+.home-photo img {
+  transform: scale(1.035);
+  object-position: center 52%;
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.home-photo::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(122deg, rgba(15, 12, 9, .1) 12%, rgba(15, 12, 9, .02) 44%, rgba(15, 12, 9, .74) 100%);
+}
+
+.home-photo::after {
+  z-index: 2;
+  background: linear-gradient(0deg, rgba(12, 10, 8, .92) 0%, rgba(12, 10, 8, .52) 27%, transparent 64%);
+}
+
+.home-photo div {
+  z-index: 3;
+  left: clamp(24px, 4vw, 48px);
+  bottom: clamp(25px, 4vw, 46px);
+  max-width: 360px;
+}
+
+.home-photo span { font-size: 10px; letter-spacing: .16em; color: #f1d782; }
+.home-photo b { font-size: clamp(30px, 3vw, 46px); line-height: 1.05; margin-top: 9px; }
+.home-photo div p { margin: 10px 0 0; color: rgba(255, 255, 255, .82); font-size: 14px; line-height: 1.45; }
+.home-copy h1 { letter-spacing: -.045em; }
+.home-copy > p { font-size: 17px; max-width: 500px; }
+.home-actions { margin-top: 34px; }
+
+@media (max-width: 900px) {
+  .scroll-platform .home-page { grid-template-columns: 1fr; gap: 42px; }
+  .home-photo { height: min(650px, 91vw); min-height: 430px; max-width: 760px; width: 100%; }
+}
+
+@media (max-width: 500px) {
+  .scroll-platform .home-page { padding-top: 58px; }
+  .home-photo { height: 112vw; min-height: 390px; border-radius: 22px; }
+  .home-photo div { left: 24px; bottom: 26px; right: 20px; }
+  .home-photo b { font-size: 33px; }
+}

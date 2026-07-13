@@ -1,0 +1,39 @@
+/* Account access choices and a living home-image treatment. */
+.access-choice { display:grid; gap:16px; padding:32px; background:var(--card); border:1px solid var(--edge); border-radius:20px; box-shadow:0 20px 45px #0000000b; }
+.access-choice span,.access-choice h1,.access-choice p { margin:0; }
+.access-choice span { color:var(--accent); font-size:10px; font-weight:700; letter-spacing:.13em; }
+.access-choice h1 { font:700 35px/1.15 'Playfair Display'; }
+.access-choice p { color:var(--muted); font-size:13px; line-height:1.65; }
+.access-choice .gold-button,.access-choice .home-secondary { width:100%; }
+.access-methods { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.access-methods button { height:40px; border:1px solid var(--edge); border-radius:8px; background:transparent; color:var(--muted); font:700 11px 'DM Sans'; cursor:pointer; }
+.access-methods button.selected { background:var(--pale); border-color:var(--accent); color:var(--accent2); }
+.back-access { justify-self:start; border:0; background:transparent; color:var(--accent); padding:0; font:700 12px 'DM Sans'; cursor:pointer; }
+.access-message { margin:0; padding:10px; border-radius:8px; background:#1b9b6914; color:#258962!important; font-size:12px!important; line-height:1.5; }
+
+.home-photo { background:#16130f; }
+.home-gallery img { position:absolute; inset:0; width:100%; height:100%; opacity:0; transform:scale(1.08); object-fit:cover; transition:opacity 1.25s ease,transform 6.2s cubic-bezier(.22,1,.36,1),filter 1.25s ease; will-change:transform,filter,opacity; }
+.home-gallery img.active { opacity:1; transform:scale(1.015); filter:saturate(1.1) contrast(1.04); animation: home-image-drift 7.5s cubic-bezier(.45,.05,.55,.95) infinite alternate; }
+.home-photo::before { animation: home-light-sweep 9s ease-in-out infinite alternate; }
+.home-photo > div { animation: home-copy-float 5s ease-in-out infinite; }
+.home-slide-dots { display:flex; gap:7px; margin-top:17px; }
+.home-slide-dots button { width:22px; height:3px; padding:0; border:0; border-radius:3px; background:rgba(255,255,255,.38); cursor:pointer; transition:width .25s ease,background-color .25s ease; }
+.home-slide-dots button.active { width:38px; background:#f1d782; }
+@keyframes home-image-drift { from { transform:scale(1.04) translate3d(-1.2%,-.7%,0); filter:saturate(1.03) brightness(.96); } to { transform:scale(1.13) translate3d(1.5%,1.1%,0); filter:saturate(1.14) brightness(1.06); } }
+@keyframes home-light-sweep { from { opacity:.5; transform:translateX(-2%); } to { opacity:1; transform:translateX(2%); } }
+@keyframes home-copy-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
+@media (prefers-reduced-motion:reduce) { .home-photo img,.home-photo::before,.home-photo > div { animation:none!important; transition:none!important; } }
+
+.phone-field { display:grid; grid-template-columns:minmax(170px,.9fr) 1.1fr; gap:8px; margin-top:7px; }
+.phone-field .country-picker { margin-top:0; }
+.phone-field .country-trigger { height:45px; }
+.phone-entry { display:flex!important; align-items:center; margin:0!important; border:1px solid var(--edge); border-radius:9px; overflow:hidden; background:var(--card); }
+.phone-entry:focus-within { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent); }
+.phone-entry span { padding:0 11px; color:var(--accent2); font:700 13px 'DM Sans'; border-right:1px solid var(--edge); white-space:nowrap; }
+.phone-entry input { margin:0!important; border:0!important; box-shadow:none!important; }
+.phone-field small { grid-column:1/-1; margin:0!important; color:var(--muted)!important; }
+.upload-preview { position:relative; display:inline-grid; flex:none; }
+.upload-preview button { position:absolute; right:3px; top:3px; display:grid; place-items:center; width:20px; height:20px; padding:0; border:0; border-radius:50%; background:#231f1be0; color:#fff; cursor:pointer; }
+.wish-sort { display:flex; align-items:center; gap:6px; color:var(--muted); font:10px 'DM Sans'; }
+.wish-sort select { height:38px; border:1px solid var(--edge); border-radius:8px; background:var(--card); color:var(--muted); padding:0 10px; font:11px 'DM Sans'; cursor:pointer; }
+@media(max-width:560px) { .phone-field { grid-template-columns:1fr; } .wish-sort { align-items:flex-end; flex-direction:column; } }
