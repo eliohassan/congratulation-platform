@@ -37,3 +37,107 @@
 .wish-sort { display:flex; align-items:center; gap:6px; color:var(--muted); font:10px 'DM Sans'; }
 .wish-sort select { height:38px; border:1px solid var(--edge); border-radius:8px; background:var(--card); color:var(--muted); padding:0 10px; font:11px 'DM Sans'; cursor:pointer; }
 @media(max-width:560px) { .phone-field { grid-template-columns:1fr; } .wish-sort { align-items:flex-end; flex-direction:column; } }
+
+/* Compact mobile layout: remove desktop-sized empty sections and oversized gaps. */
+@media (max-width: 700px) {
+  .content { padding: 0 14px; }
+  .scroll-platform .home-page,
+  .scroll-platform .find-page,
+  .scroll-platform .register-page,
+  .scroll-platform .guide-page {
+    min-height: auto!important;
+    padding-bottom: 46px!important;
+  }
+  .scroll-platform .home-page { gap: 26px; padding-top: 38px; }
+  .scroll-platform .find-page,
+  .scroll-platform .guide-page { padding-top: 48px!important; }
+  .scroll-platform .register-page { padding-top: 42px!important; }
+  .home-copy h1,.find-page h1,.guide-page>h1 { font-size: clamp(36px,11vw,45px); margin:14px 0; }
+  .home-copy>p,.find-page>p { font-size:15px; line-height:1.58; }
+  .home-photo { height: min(102vw, 450px); min-height: 0; border-radius:20px; }
+  .home-photo div { bottom:22px; left:22px; }
+  .home-photo b { font-size:31px; }
+  .home-followup { gap:16px; padding-top:32px; margin-top:4px; }
+  .home-followup h2 { font-size:32px; }
+  .find-steps { margin-top:38px; padding-top:20px; gap:9px; }
+  .register-page { gap:24px!important; }
+  .register-card { padding:18px; gap:13px; }
+  .register-copy ul { margin:18px 0 0; }
+  .guide-page-grid { margin-top:25px; gap:11px; }
+  .guide-page-grid article { padding:19px; }
+  .app footer { gap:22px; padding:30px 14px; }
+}
+
+/* Phone-first reading scale and spacing across every screen. */
+@media (max-width: 700px) {
+  .source-nav { height:58px; }
+  .links { top:58px; }
+  .source-logo { font-size:17px; letter-spacing:.1em; }
+  .nav-inner { gap:8px; padding:0 11px; }
+  .controls { gap:5px; }
+  .language-button { padding:6px!important; }
+  .scroll-platform>section { scroll-margin-top:63px; }
+  .scroll-platform .home-page,
+  .scroll-platform .find-page,
+  .scroll-platform .register-page,
+  .scroll-platform .guide-page { padding-left:0!important; padding-right:0!important; }
+  .home-copy h1,.find-page h1,.guide-page>h1,.register-copy h1 { font-size:clamp(31px,9.2vw,38px)!important; line-height:1.12; }
+  .home-copy>p,.find-page>p,.register-copy>p { font-size:14px!important; line-height:1.58!important; }
+  .portal-chip { padding:6px 10px; font-size:8px; }
+  .home-actions { margin-top:22px; }
+  .gold-button,.home-secondary { min-height:44px; font-size:13px!important; }
+  .home-photo { height:min(94vw,390px); }
+  .home-photo b { font-size:28px!important; }
+  .home-photo div p { font-size:13px; }
+  .home-followup { padding-top:25px; }
+  .home-followup h2 { font-size:28px; }
+  .find-steps { margin-top:28px; }
+  .find-steps article { padding:13px; }
+  .register-page { padding-top:32px!important; padding-bottom:38px!important; }
+  .register-copy ul { font-size:12px; line-height:1.45; }
+  .register-copy li { margin:8px 0; }
+  .register-card h2 { font-size:23px; }
+  .register-card label,.form-card label { font-size:10px; }
+  .register-card input,.form-card input:not(.hidden-file),.form-card textarea,.phone-entry input { font-size:16px!important; }
+  .register-card input,.form-card input:not(.hidden-file),.form-card textarea { padding:11px!important; }
+  .guide-page-grid h2 { font-size:20px; margin:14px 0 7px; }
+  .guide-page-grid p { font-size:13px; }
+  .wall { padding:20px 0 45px; }
+  .wall-hero { height:330px!important; }
+  .wall-hero h1 { font-size:36px!important; }
+  .couple-quote { margin:25px auto; }
+  .couple-quote p { font-size:18px; }
+  .form-card { padding:18px; }
+  .form-card h2 { font-size:23px; }
+  .feed-title h2 { font-size:24px; }
+  .wish { min-height:0; padding:15px; }
+  .wish blockquote { margin:12px 0; font-size:15px; }
+}
+
+/* Keep the scrolling experience compact on every viewport.  The first design
+   used screen-height sections, which left a large blank area after short
+   content such as the guide cards and Find-a-Wall steps. */
+.scroll-platform .home-page,
+.scroll-platform .find-page,
+.scroll-platform .register-page,
+.scroll-platform .guide-page {
+  min-height: 0 !important;
+}
+
+.scroll-platform .home-page { padding-bottom: 68px !important; }
+.scroll-platform .find-page,
+.scroll-platform .guide-page { padding-top: 64px !important; padding-bottom: 68px !important; }
+.scroll-platform .register-page { padding-top: 58px !important; padding-bottom: 68px !important; }
+.find-steps { margin-top: 38px !important; }
+.guide-page-grid { margin-top: 30px; }
+.home-followup { margin-top: 20px; padding-top: 32px; }
+
+@media (max-width: 700px) {
+  .scroll-platform .home-page { padding-bottom: 38px !important; }
+  .scroll-platform .find-page,
+  .scroll-platform .guide-page { padding-top: 38px !important; padding-bottom: 40px !important; }
+  .scroll-platform .register-page { padding-top: 32px !important; padding-bottom: 40px !important; }
+  .find-steps { margin-top: 24px !important; padding-top: 16px; }
+  .guide-page-grid { margin-top: 20px; }
+  .home-followup { margin-top: 0; padding-top: 22px; }
+}
